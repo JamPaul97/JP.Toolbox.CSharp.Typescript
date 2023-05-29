@@ -1,6 +1,8 @@
 # Typescript
 A tool for (transpiling, converting)  C# Classes, Interfaces, Enums to Typescript
 
+### DISCLAIMER
+This is a personal, in development project. It is not recommended to use this in any application.
 ## Usage
 ```csharp
 var convereter = new Converter(outputDirectory);
