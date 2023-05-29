@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JP.Toolbox.CSharp.Typescript", "JP.Toolbox.CSharp.Typescript\JP.Toolbox.CSharp.Typescript.csproj", "{3F92DB4D-5994-4462-8391-326AA68FBCF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JP.Toolbox.CSharp.Typescript.Tests", "JP.Toolbox.CSharp.Typescript.Tests\JP.Toolbox.CSharp.Typescript.Tests.csproj", "{1C7277E0-BF38-440A-9B2C-C8ADC75C8D27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F92DB4D-5994-4462-8391-326AA68FBCF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F92DB4D-5994-4462-8391-326AA68FBCF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F92DB4D-5994-4462-8391-326AA68FBCF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F92DB4D-5994-4462-8391-326AA68FBCF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C7277E0-BF38-440A-9B2C-C8ADC75C8D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7277E0-BF38-440A-9B2C-C8ADC75C8D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7277E0-BF38-440A-9B2C-C8ADC75C8D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7277E0-BF38-440A-9B2C-C8ADC75C8D27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
