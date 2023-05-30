@@ -4,10 +4,12 @@
     {
         public string Name { get; set; }
         public string Filename { get; set; }
-        public TypescriptAttribute(string name, string filename)
+        public string Path { get; set; }
+        public TypescriptAttribute(string name, string filename, string path = "")
         {
             Name = name;
             Filename = filename;
+            Path = path;
         }
     }
 }

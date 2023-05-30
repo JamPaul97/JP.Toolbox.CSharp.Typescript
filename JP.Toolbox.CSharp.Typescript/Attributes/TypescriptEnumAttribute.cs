@@ -8,5 +8,6 @@
         public TypescriptEnumAttribute(string name, string filename) : base(name, filename)
         {
         }
+        public string GetFilename(bool extension = false) => System.IO.Path.Combine(this.Path, this.Filename + (extension ? ".enum.ts" : ""));
     }
 }

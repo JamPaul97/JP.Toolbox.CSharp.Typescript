@@ -1,5 +1,6 @@
 using JP.Toolbox.CSharp.Typescript.Attributes;
 using System;
+using static JP.Toolbox.CSharp.Typescript.Tests.Tests;
 
 namespace JP.Toolbox.CSharp.Typescript.Tests
 {
@@ -12,31 +13,50 @@ namespace JP.Toolbox.CSharp.Typescript.Tests
             if (Directory.Exists(dir)) Directory.Delete(dir, true);
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
             var rc = new Converter(dir);
-            rc.AddClass(typeof(NormalClass));
+            rc.AddInterface(typeof(NormalClass));
             rc.AddEnum(typeof(NumbersAsInt));
             rc.AddEnum(typeof(NumbersAsString));
+            rc.AddClass(typeof(Settings));
             rc.AddInterface(typeof(c));
-            rc.AddGenericClass(typeof(d<e>));
-
+            rc.AddInterface(typeof(bb<e,c>));
+            rc.AddClass(typeof(e));
             rc.Build();
         }
-        [TypescriptClass("A", "a")]
-        private class NormalClass
+        [TypescriptClassAttribute("Settings", "settings")]
+        public class Settings
         {
-            public int[] ints { get; set; }
+            public int port { get; set; } = 50;
+            public string host { get; set; } = "localhost";
+
+        }
+        public class aa
+        {
+            public List<string> test;
+        }
+        [TypescriptInterface("BBA", "aBB")]
+        public interface bb<T,Q>
+        {
+            public string[] test { get; set; }
+            public int[] test2 { get; set; }
+            public c test3 { get; set; }
+        }
+        [TypescriptInterface("A", "a")]
+        public interface NormalClass
+        {
             public int b { get; set; }
+            public c Getc { get; set; }
             public NumbersAsInt test { get; set; }
             public NumbersAsString test2 { get; set; }
         }
         [TypescriptEnum("NumbersAsInt", "numbers-as-ints")]
-        private enum NumbersAsInt
+        public enum NumbersAsInt
         {
             One = 1,
             Two = 2,
             Three = 3
         }
         [TypescriptEnum("NumbersAsString", "numbers-as-strings")]
-        private enum NumbersAsString
+        public enum NumbersAsString
         {
             [TypescriptEnumStringValue("One")]
             One = 1,
@@ -48,30 +68,16 @@ namespace JP.Toolbox.CSharp.Typescript.Tests
         }
 
         [TypescriptInterface("C", "c")]
-        private interface c {
-            public string thisIsAString { get; set; }
-            public int thisIsAnInt { get; set; }
-            public bool thisIsABool { get; set; }
-            public DateTime thisIsADateTime { get; set; }
-            public NumbersAsInt thisIsAnEnum { get; set; }
-            public NumbersAsString thisIsAnEnum2 { get; set; }
-            public List<NumbersAsInt> thisIsAListOfEnums { get; set; }
-            public List<NumbersAsString> thisIsAListOfEnums2 { get; set; }
-            public List<string> thisIsAListOfStrings { get; set; }
-            public List<int> thisIsAListOfInts { get; set; }
-            public List<bool> thisIsAListOfBools { get; set; }
-            public List<DateTime> thisIsAListOfDateTimes { get; set; }
-            public List<NormalClass> thisIsAListOfNormalClasses { get; set; }
-            public NormalClass thisIsANormalClass { get; set; }
-
+        public interface c {
+            
             public int b { get; set; }
             public NumbersAsInt test { get; set; }
             public NumbersAsString test2 { get; set; }
         }
         [TypescriptClass("E", "e")]
-        private class e { }
+        public class e { }
         [TypescriptGenericClass("D", "d")]
-        private class d<e>
+        public class d<T>
         {
 
         }

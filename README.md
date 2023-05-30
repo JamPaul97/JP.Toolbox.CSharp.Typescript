@@ -18,9 +18,8 @@ convereter.Build();
 - In order for the Type to work with the convereter, you must use the corrent Attributes
 - Classes or Interfaces with same 'Name' or 'Filename' with throw an exception
 - Enums with same 'Name' or 'Filename' with throw an exception
-- NOTE** Classes will be exported as 'export interface' and not 'export class'
 - NOTE** Enums will be exported as 'export enum'
-- NOTE	** When using the 'TypescriptGenericClassAttribute' the class must not have a specific generic type (ex. MyClass<T> is valid, but MyClass<string> is not)- As of now, the convereter support Lists, but not Dictionaries or Arrays
+- As of now, the convereter support Lists, but not Dictionaries or Arrays
 ## Attributes
 The attributes are used to give the convereter more information about the class, interface or enum.
 They take two arguments that are mandatory, 'Name' and 'Filename'. The 'Name' is the name of the class, interface or enum. 
@@ -60,14 +59,32 @@ The class :
 [TypescriptClassAttribute("MyClass", "my-class")]
 public class ThisNameDoesNotMater
 {
-	public string Name { get; set; }
-	public int Age { get; set; }
+	public string Name { get; set; } = "MyName";
+	public int Age { get; set; } = 20;
 }
 ```
 
-This will be exported as <u>'my-class.interface.ts'</u> and will look like this:
+This will be exported as <u>'my-class.class.ts'</u> and will look like this:
 ```typescript
-export interface MyClass {
+export class MyClass {
+	Name: string = "MyName";
+	Age: number = 20;
+}
+```
+
+The interface : 
+```csharp
+[TypescriptInterfaceAttribute("MyInterface", "my-interface")]
+public interface ThisNameDoesNotMater<T,Q,K>
+{
+	string Name { get; set; }
+	int Age { get; set; }
+}
+```
+
+This will be exported as <u>'my-interface.interface.ts'</u> and will look like this:
+```typescript
+export interface MyInterface<T, Q, K> {
 	Name: string;
 	Age: number;
 }
@@ -79,3 +96,7 @@ export interface MyClass {
 	- Add support for Dictionaries
 	- Add support for Arrays
 	- Extensive testing
+
+## Changelog
+* 2023.5.21 - Removed Generic Classes support
+* 2023.5.21 - Added support for Generic Interfaces* 2023.5.21 - Fixed class output
