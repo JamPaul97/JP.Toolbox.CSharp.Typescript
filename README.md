@@ -72,6 +72,24 @@ export class MyClass {
 }
 ```
 
+The class : 
+```csharp
+[TypescriptInterfaceAttribute("MyInterfaceClass", "my-interface-class")]
+public class ThisNameDoesNotMater
+{
+	public string Name { get; set; } = "MyName";
+	public int Age { get; set; } = 20;
+}
+```
+
+This will be exported as <u>'my-interface-class.interface.ts'</u> and will look like this:
+```typescript
+export interface MyInterfaceClass {
+	Name: string;
+	Age: number;
+}
+```
+
 The interface : 
 ```csharp
 [TypescriptInterfaceAttribute("MyInterface", "my-interface")]
@@ -98,5 +116,10 @@ export interface MyInterface<T, Q, K> {
 	- Extensive testing
 
 ## Changelog
-* 2023.5.21 - Removed Generic Classes support
-* 2023.5.21 - Added support for Generic Interfaces* 2023.5.21 - Fixed class output
+ 2023.5.30 
+  - Classes now can be entered as Interfaces and as classes
+
+ 2023.5.21 
+  - Removed Generic Classes support
+  - Added support for Generic Interfaces
+  - Fixed class output
