@@ -13,15 +13,11 @@ namespace JP.Toolbox.CSharp.Typescript.Tests
             if (Directory.Exists(dir)) Directory.Delete(dir, true);
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
             var rc = new Converter(dir);
-            rc.AddInterface(typeof(NormalClass));
-            rc.AddEnum(typeof(NumbersAsInt));
-            rc.AddEnum(typeof(NumbersAsString));
+            rc.AddInterface(typeof(Settings));
             rc.AddClass(typeof(Settings));
-            rc.AddInterface(typeof(c));
-            rc.AddInterface(typeof(bb<e,c>));
-            rc.AddClass(typeof(e));
             rc.Build();
         }
+        [TypescriptInterfaceAttribute("Settings", "settings")]
         [TypescriptClassAttribute("Settings", "settings")]
         public class Settings
         {

@@ -4,13 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>2023.5.30.57</AssemblyVersion>
-    <FileVersion>2023.5.30.57</FileVersion>
+    <AssemblyVersion>2023.5.31.3</AssemblyVersion>
+    <FileVersion>2023.5.31.3</FileVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>JP.Toolbox.CSharp.Typescript</Title>
     <Authors>JamPaul</Authors>
     <PackageProjectUrl>https://github.com/JamPaul97/JP.Toolbox.CSharp.Typescript</PackageProjectUrl>
-    <Version>2023.5.24</Version>
+    <Version>2023.5.29</Version>
     <Description>A tool for (transpiling, converting)  C# Classes, Interfaces, Enums to Typescript</Description>
     <PackageTags>typescript transpiling converting</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

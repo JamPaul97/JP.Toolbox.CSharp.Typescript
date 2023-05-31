@@ -56,7 +56,7 @@ namespace JP.Toolbox.CSharp.Typescript
         }
         public void AddInterface(Type type)
         {
-            if (!type.IsInterface) throw new ArgumentException("Type must be an interface", nameof(type));
+            if (!type.IsInterface && !type.IsClass) throw new ArgumentException("Type must be an interface", nameof(type));
             if (interfaces.Contains(type)) throw new Exception("Type already added");
             interfaces.Add(type);
         }
