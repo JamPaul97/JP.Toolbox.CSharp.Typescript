@@ -9,6 +9,7 @@ namespace JP.Toolbox.CSharp.Typescript.Tests
         [Fact]
         public void Test1()
         {
+
             var dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "test");
             if (Directory.Exists(dir)) Directory.Delete(dir, true);
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
