@@ -148,6 +148,7 @@ namespace JP.Toolbox.CSharp.Typescript
                 if (p.PropertyType.IsPrimitive) continue;
                 if (p.PropertyType == typeof(string)) continue;
                 if (p.IsList()) continue;
+                if(p.GetType().ToString() == "System.Reflection.RuntimePropertyInfo") continue; // This is a Type of 'T' that is unseted
                 if (p.PropertyType.IsClass)
                     if (!this.classes.Contains(p.PropertyType))
                         throw new Exception($"Class '{c.FullName}' has a property of type '{p.PropertyType.FullName}' that is not in the list of classes");

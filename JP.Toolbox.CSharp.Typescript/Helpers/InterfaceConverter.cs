@@ -43,7 +43,12 @@ namespace JP.Toolbox.CSharp.Typescript.Helpers
                 var duplicates = identifiers.GroupBy(x => x).Where(g => g.Count() > 1).Select(y => y.Key).ToList();
                 throw new Exception($"Duplicate generic identifiers found: {string.Join(", ", duplicates)}");
             }
-            return "<" + string.Join(", ", identifiers) + ">"; ;
+            foreach(var x in generics)
+            {
+                if(x.FullName != null)
+                     throw new Exception($"Generic type {x.FullName} is not supported");
+            }
+            return "<" + string.Join(", ", generics.ToList()) + ">";
         }
         public string Convert()
         {
@@ -132,6 +137,12 @@ namespace JP.Toolbox.CSharp.Typescript.Helpers
                         throw new Exception($"Class '{e.FullName}' is not in the list of classes.");
                     sb.AppendLine($"    {p.Name}: {e.GetAttributeName()}[];");
                     sbImports.AppendLine(this.converters.GetConverter(e).ImportStatement);
+                    continue;
+                }
+                if(genericTypes.Any(x=>x.Name == p.PropertyType.ToString()))
+                {
+                    var currentGenericType = genericTypes.First(x=>x.Name == p.PropertyType.ToString());
+                    sb.AppendLine($"    {p.Name}: {currentGenericType.Name};");
                     continue;
                 }
                 if (p.PropertyType.IsClass && !p.PropertyType.IsInterface)
